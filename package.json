@@ -1,0 +1,19 @@
+{
+  "name": "academic-rest-api",
+  "version": "1.0.0",
+  "description": "Academic Api for students and teachers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "academic",
+    "rest",
+    "api",
+    "teacher",
+    "stude",
+    "course"
+  ],
+  "author": "",
+  "license": "ISC"
+}
