@@ -1,4 +1,26 @@
-//user: acad_rest_api_user
-//password: gPkXuhnjin6TudLv
+//packages//
+const mongoose = require("mongoose");
+const config = require("config");
 
-//mongodb+srv://acad_rest_api_user:gPkXuhnjin6TudLv@nodenativo.tmh8rdn.mongodb.net/
+const mongodbInfo = config.get("db-connections.mongodb");
+
+
+const connStr = 'mongodb+srv://${mongodbInfo.user}:${mongodbInfo.password}@${mongodbInfo.host}/${mongodbInfo.dbname}?retryWrites=true&w=majority';
+
+module.exports = () => {
+    mongoose.connect(connStr);
+
+    mongoose.connection.on("conected", () => {
+        console.log("mongodb server connected!")
+    });
+    mongoose.connection.on("disconected", () => {
+        console.log("mongodb server connection error!")
+    });
+
+    mongoose.connection.on("SIGINT", () => {
+        mongoose.connection.close(()=> {
+            console.log("mongodb server connected!")
+        });
+    });
+}
+

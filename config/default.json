@@ -1,0 +1,16 @@
+{
+    "db-connections":{
+        "mongodb":{
+            "host": "nodenativo.tmh8rdn.mongodb.net",
+            "user": "acad_rest_api_user",
+            "password":"gPkXuhnjin6TudLv",
+            "dbname": "AcademicDB"
+        }
+    },
+
+    "secretKeys":{
+        "cryptojs":"jsA5t2@tfhD"    
+    },
+    "server-port": 3000
+    
+}
