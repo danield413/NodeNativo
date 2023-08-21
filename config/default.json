@@ -7,10 +7,11 @@
             "dbname": "AcademicDB"
         }
     },
-
-    "secretKeys":{
-        "cryptojs":"jsA5t2@tfhD"    
+    "secretkeys": {
+        "cryptojs": "jsA5t2@tfhD",
+        "jwt": "ABC@2020*"
     },
-    "server-port": 3000
+    "server-port": 3000,
+    "session-time": 3600
     
 }

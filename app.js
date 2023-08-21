@@ -13,32 +13,20 @@ const port = config.get("server-port")
 app.use(jsonParser);
 app.use(urlEncodedParser);
 
-const controller = require("./controller/logic/person.controller")
+const ipFn = require("./middleware/getIpAddress");
+app.use("*", ipFn);
+
+// token middleware
+tkFn = require("./middleware/verifyToken")
+app.use(tkFn)
 
 /** Methods */
 app.get('/', (req, res, next) => {
     res.send("Welcome to academic rest api");
 });
 
-app.get('/person', (req, res, next) => {
-    controller.getAll(req, res, next)
-})
-
-app.post('/person', (req, res, next) => {
-    controller.createPerson(req, res, next)
-})
-
-app.put('/person', (req, res, next) => {
-    controller.updatePerson(req, res, next)
-})
-
-app.get('/person/bydocument/:document', (req, res, next) => {
-    controller.getByDocument(req, res, next)
-})
-
-app.delete('/person/:id', (req, res, next) => {
-    controller.deletePerson(req, res, next)
-})
+const personRoutes = require("./routes/person.routes")
+personRoutes(app);
 
 app.listen(port, () => {
     console.log("Server is running...")
