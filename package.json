@@ -14,7 +14,7 @@
     "students",
     "teacher"
   ],
-  "author": "Juan Manuel Figueroa Valencia",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
